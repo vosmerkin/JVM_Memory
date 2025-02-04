@@ -1,18 +1,20 @@
 package org.yevhen.BookCatalog;
 
-public class Book {
+public class Book implements BookReadOnly {
     private int id;
     private String title;
     private String author;
     private Price price;
 
+    @Override
     public int getId() {
         return id;
     }
 
-    public String getTitle() {
-    }
+    @Override
+    public String getTitle() {return title;   }
 
+    @Override
     public String getAuthor() {
         return author;
     }
@@ -24,10 +26,12 @@ public class Book {
         this.price = new Price(price);
     }
 
+    @Override
     public String toString() {
         return title + " by " + author;
     }
 
+    @Override
     public Price getPrice() {
         return this.price;
     }
